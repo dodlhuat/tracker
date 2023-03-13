@@ -1,0 +1,56 @@
+@startuml
+entity User {
+  id: integer
+  --
+  lastname: string
+  firstname: string
+  email: string
+  password: string
+  created_at: datetime
+  updated_at: datetime
+  deleted_at: datetime
+}
+entity Weekday {
+  id: integer
+  --
+  name: string
+  created_at: datetime
+  updated_at: datetime
+  deleted_at: datetime
+}
+entity Workingminutes {
+  id: integer
+  --
+  user_id: integer
+  weekday_id: integer
+  minutes: integer
+  created_at: datetime
+  updated_at: datetime
+  deleted_at: datetime
+}
+entity TrackingType {
+  id: integer
+  --
+  name: string
+  created_at: datetime
+  updated_at: datetime
+  deleted_at: datetime
+}
+entity TrackedTime {
+  id: integer
+  --
+  user_id: integer
+  date: date
+  weekday_id: integer
+  minutes: minutes
+  tracking_type_id: integer
+  created_at: datetime
+  updated_at: datetime
+  deleted_at: datetime
+}
+User "1" -- "n" Workingminutes
+User "1" -- "n" TrackedTime
+Weekday "1" -- "n" Workingminutes
+TrackedTime "1" - "1" Weekday
+TrackedTime "1" - "1" TrackingType
+@enduml

@@ -1,0 +1,63 @@
+$primary: #607D8B;
+$dark-primary: #455A64;
+$light-primary: #CFD8DC;
+$accent: #FFC107;
+$text: #FFFFFF;
+$primary-text: #212121;
+$secondary-text: #757575;
+$divider: #BDBDBD;
+
+@import "../libraries/bulma/bulma";
+@import "../libraries/pageloader/pageloader.min.css";
+@import "darkmode";
+
+html, body, .select select, .textarea, .input, .box h1, .box h2, .box h3, .box label {
+    color: $primary-text;
+}
+
+h1 {
+    font-size: 3rem;
+}
+
+h2 {
+    font-size: 2.5rem;
+}
+
+.full-height {
+    height: 100vh;
+    margin: 0 !important;
+}
+
+.accent {
+    background: $accent;
+    color: $primary-text;
+}
+
+.pageloader {
+    background: $accent;
+}
+
+.hidden {
+    display: none;
+}
+
+.has-error {
+    border: 1px solid $danger !important;
+}
+
+// modals
+.is-danger .modal-card-head {
+    background: $danger;
+}
+
+.is-warning .modal-card-head {
+    background: $warning;
+}
+
+.is-success .modal-card-head {
+    background: $success;
+}
+
+.is-info .modal-card-head {
+    background: $info;
+}

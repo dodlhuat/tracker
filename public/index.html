@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Hello Bulma!</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="libraries/flatpickr/flatpickr.css">
+</head>
+<body>
+<section class="section">
+    <div class="container">
+        <h1 class="title">
+            Testing
+        </h1>
+        <input type="text" class="input datetime-picker">
+        <input type="text" class="input time-picker">
+
+        <hr>
+
+        <label for="text-input">Text Input</label>
+        <input id="text-input" class="text-input input" type="text" placeholder="Text input">
+        <button class="button show-input">Log</button>
+
+        <hr>
+
+        <label for="text-area">Text Area</label>
+        <textarea id="text-area" class="text-area textarea" placeholder="e.g. Hello world"></textarea>
+        <button class="button show-area">Log</button>
+
+        <hr>
+
+        <label for="select">Select</label>
+        <div class="select">
+            <select id="select" class="select-input">
+                <option value="1">Eins</option>
+                <option value="2">Zwei</option>
+            </select>
+        </div>
+        <button class="button show-select">Log</button>
+
+        <hr>
+
+        <button class="button set-values">set</button>
+
+        <hr>
+
+        <button class="button check-token">check token</button>
+
+    </div>
+</section>
+<div class="pageloader"><span class="title">loading</span></div>
+<script type="text/javascript" src="libraries/flatpickr/flatpickr.js"></script>
+<script type="module" src="js/dashboard.js"></script>
+</body>
+</html>
