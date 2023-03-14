@@ -3,9 +3,16 @@ import {api} from "./api.js";
 
 utils.contentLoaded(function () {
     // utils.cache('tracker-token', '2|s1qbPJZUVfASxrWHNN6axf9axYRNNMx2EOQP9yf5')
-    utils.cache('tracker-token', '3|s1qbPJZUVfASxrWHNN6axf9axYRNNMx2EOQP9yf5')
+    // utils.cache('tracker-token', '3|s1qbPJZUVfASxrWHNN6axf9axYRNNMx2EOQP9yf5')
+    console.log(utils.cache('tracker-token'));
 
-    api.checkToken()
+    api.checkToken().then((logged_in) => {
+        console.log(logged_in);
+        if (logged_in) {
+            // forward to index page
+            utils.forward('index.html');
+        }
+    })
 
     utils.on('click', utils.get('.submit-login'), function () {
         validateLogin();
@@ -15,7 +22,10 @@ utils.contentLoaded(function () {
             password: utils.get('#password').value.trim()
         }, 'POST')
             .then((response) => {
-                console.log(JSON.parse(response));
+                const data = JSON.parse(response);
+                if (data.status) {
+                    utils.cache('tracker-token', data.token);
+                }
             }, (error) => {
                 utils.hideLoading();
                 const data = JSON.parse(error);

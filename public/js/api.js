@@ -66,15 +66,26 @@ export let api = {
 
     },
     checkToken: function () {
-        api.ajaxPromise('/token-check', {}).then(function (response) {
-            response = JSON.parse(response);
-            if (response.valid !== undefined && response.valid) {
-                return true;
+        let promise_value = false;
+        return api.ajaxPromise('/token-check', {}).then(function (response) {
+            if (response === '') {
+                utils.showModal('error', {header: 'Error(s) occurred', content: 'Something went wrong!'});
+            } else {
+                response = JSON.parse(response);
+                if (response.valid !== undefined && response.valid) {
+                    promise_value = true;
+                }
             }
+            return new Promise((resolve) => {
+                resolve(promise_value);
+            });
         }, function (error) {
             if (window.location.pathname.split('/').at(-1) !== 'login.html') {
                 loginOverlay.showLogin();
             }
+            return new Promise((resolve) => {
+                resolve(promise_value);
+            });
         });
     }
 };
