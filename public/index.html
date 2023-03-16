@@ -8,44 +8,38 @@
     <link rel="stylesheet" href="libraries/flatpickr/flatpickr.css">
 </head>
 <body>
-<section class="section">
+<section class="section full-height">
     <div class="container">
         <h1 class="title">
             Testing
         </h1>
-        <input type="text" class="input datetime-picker">
-        <input type="text" class="input time-picker">
-
-        <hr>
-
-        <label for="text-input">Text Input</label>
-        <input id="text-input" class="text-input input" type="text" placeholder="Text input">
-        <button class="button show-input">Log</button>
-
-        <hr>
-
-        <label for="text-area">Text Area</label>
-        <textarea id="text-area" class="text-area textarea" placeholder="e.g. Hello world"></textarea>
-        <button class="button show-area">Log</button>
-
-        <hr>
-
-        <label for="select">Select</label>
-        <div class="select">
-            <select id="select" class="select-input">
-                <option value="1">Eins</option>
-                <option value="2">Zwei</option>
-            </select>
+        <div class="columns">
+            <div class="column">
+                <h2>Add Tracking</h2>
+                <div class="control">
+                    <label for="select">Type</label>
+                    <div class="select">
+                        <select id="select" class="select-input">
+                            <option value="1">Eins</option>
+                            <option value="2">Zwei</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="control">
+                    <label for="start-date">Start</label>
+                    <input id="start-date" type="text" class="input datetime-picker">
+                </div>
+                <div class="control">
+                    <label for="end-date">End</label>
+                    <input id="end-date" type="text" class="input time-picker">
+                </div>
+                <button class="button add-tracking">Add</button>
+            </div>
+            <div class="column">
+                <h2>Trackings</h2>
+                <p>tbd</p>
+            </div>
         </div>
-        <button class="button show-select">Log</button>
-
-        <hr>
-
-        <button class="button set-values">set</button>
-
-        <hr>
-
-        <button class="button check-token">check token</button>
 
     </div>
 </section>

@@ -14,9 +14,21 @@ export let utils = {
         if (elements.length === 1) return elements[0];
         return elements;
     },
+    find: function (element, selector) {
+        const elements = element.querySelectorAll(selector);
+        if (elements.length === 1) return elements[0];
+        return elements;
+    },
     on: function (action, element, callback) {
-        element.removeEventListener(action, callback)
-        element.addEventListener(action, callback);
+        if (element instanceof NodeList) {
+            for (let i = 0; i < element.length; i++) {
+                element[i].removeEventListener(action, callback);
+                element[i].addEventListener(action, callback);
+            }
+        } else {
+            element.removeEventListener(action, callback);
+            element.addEventListener(action, callback);
+        }
     },
     showModal: function (type, parameters) {
         if (this.get('.modal').length === 0) {
