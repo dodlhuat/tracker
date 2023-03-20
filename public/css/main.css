@@ -2,6 +2,7 @@
 /*! bulma.io v0.9.4 | MIT License | github.com/jgthms/bulma */
 /* Bulma Utilities */
 @import "../libraries/pageloader/pageloader.min.css";
+@import "../libraries/animate/animate.min.css";
 .pagination-previous,
 .pagination-next,
 .pagination-link,
@@ -10344,6 +10345,10 @@ h2 {
 
 .has-error {
   border: 1px solid hsl(348deg, 86%, 61%) !important;
+}
+
+.navbar-container {
+  position: absolute;
 }
 
 .is-danger .modal-card-head {

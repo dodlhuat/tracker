@@ -9,6 +9,7 @@ $divider: #BDBDBD;
 
 @import "../libraries/bulma/bulma";
 @import "../libraries/pageloader/pageloader.min.css";
+@import "../libraries/animate/animate.min.css";
 @import "darkmode";
 
 html, body, .select select, .textarea, .input, .box h1, .box h2, .box h3, .box label {
@@ -43,6 +44,10 @@ h2 {
 
 .has-error {
     border: 1px solid $danger !important;
+}
+
+.navbar-container {
+    position: absolute;
 }
 
 // modals

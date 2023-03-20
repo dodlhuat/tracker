@@ -2,12 +2,12 @@ import {utils} from "../components/utils.js";
 import {api} from "../components/api.js";
 import {dropdown} from "../components/dropdown.js";
 import {navbar} from "../components/navbar.js";
+import {animate} from "../components/animate.js";
 
 utils.contentLoaded(function () {
     api.checkToken().then((logged_in) => {
         // logged_in returning true or false
     });
-
     navbar.init();
 
     // datetime picker
