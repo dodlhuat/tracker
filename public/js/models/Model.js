@@ -1,4 +1,4 @@
-import {api} from "../api.js";
+import {api} from "../components/api.js";
 
 export class Model {
     api_path = '';

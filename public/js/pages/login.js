@@ -1,5 +1,5 @@
-import {utils} from "./utils.js";
-import {api} from "./api.js";
+import {utils} from "../components/utils.js";
+import {api} from "../components/api.js";
 
 utils.contentLoaded(function () {
     api.checkToken().then((logged_in) => {
@@ -7,7 +7,7 @@ utils.contentLoaded(function () {
             // forward to index page
             utils.forward('index.html');
         }
-    })
+    });
 
     utils.on('click', utils.get('.submit-login'), function () {
         validateLogin();

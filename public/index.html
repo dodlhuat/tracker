@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="libraries/flatpickr/flatpickr.css">
 </head>
 <body>
+<div class="navbar-container pb-4"></div>
 <section class="section full-height">
     <div class="container">
         <h1 class="title">
@@ -16,20 +17,20 @@
         <div class="columns">
             <div class="column">
                 <h2>Add Tracking</h2>
-                <div class="control">
-                    <label for="select">Type</label>
+                <div class="control mb-2">
+                    <label for="tracking-type">Type</label>
                     <div class="select">
-                        <select id="select" class="select-input">
+                        <select id="tracking-type" class="select-input">
                             <option value="1">Eins</option>
                             <option value="2">Zwei</option>
                         </select>
                     </div>
                 </div>
-                <div class="control">
+                <div class="control mb-2">
                     <label for="start-date">Start</label>
                     <input id="start-date" type="text" class="input datetime-picker">
                 </div>
-                <div class="control">
+                <div class="control mb-2">
                     <label for="end-date">End</label>
                     <input id="end-date" type="text" class="input time-picker">
                 </div>
@@ -45,6 +46,6 @@
 </section>
 <div class="pageloader"><span class="title">loading</span></div>
 <script type="text/javascript" src="libraries/flatpickr/flatpickr.js"></script>
-<script type="module" src="js/dashboard.js"></script>
+<script type="module" src="js/pages/dashboard.js"></script>
 </body>
 </html>

@@ -2,6 +2,10 @@ import {utils} from "./utils.js";
 
 export let dropdown = {
     init: function (selector) {
+        if (utils.get(selector).length === 0) {
+            console.error(selector + ' not found')
+            return;
+        }
         if (!utils.get(selector).classList.contains('tracker-dropdown')) {
             utils.get(selector).classList.add('tracker-dropdown')
             const options = utils.get(selector).getElementsByTagName('option');
@@ -28,5 +32,7 @@ export let dropdown = {
             // TODO: multi select?
             this.closest('.options-list').classList.add('hidden');
         });
+
+        return utils.get(selector);
     }
 }

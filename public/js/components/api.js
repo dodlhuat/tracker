@@ -1,4 +1,4 @@
-import {Model} from "./models/Model.js";
+import {Model} from "../models/Model.js";
 import {utils} from "./utils.js";
 import {loginOverlay} from "./login-overlay.js";
 
@@ -87,5 +87,8 @@ export let api = {
                 resolve(promise_value);
             });
         });
+    },
+    logout: () => {
+        utils.cache('tracker-token', '');
     }
 };

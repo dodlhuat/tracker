@@ -1,8 +1,15 @@
-import {utils} from "./utils.js";
-import {api} from "./api.js";
-import {dropdown} from "./dropdown.js";
+import {utils} from "../components/utils.js";
+import {api} from "../components/api.js";
+import {dropdown} from "../components/dropdown.js";
+import {navbar} from "../components/navbar.js";
 
 utils.contentLoaded(function () {
+    api.checkToken().then((logged_in) => {
+        // logged_in returning true or false
+    });
+
+    navbar.init();
+
     // datetime picker
     let datetimepicker = flatpickr('.datetime-picker', {
         enableTime: true,
@@ -25,6 +32,12 @@ utils.contentLoaded(function () {
         time_24hr: true
     });
 
-    dropdown.init('select#select');
+    let tracking_type = dropdown.init('select#tracking-type');
+
+    utils.on('click', utils.get('.add-tracking'), () => {
+        // timestamp: datetimepicker.selectedDates[0].valueOf()
+        console.log(timepicker.selectedDates);
+        console.log(tracking_type.value);
+    });
 });
 
