@@ -122,6 +122,13 @@ export let utils = {
                 return false;
             }
         }
+    },
+    fillDropdown: (field, elements, value = 'id', name = 'name') => {
+        let html = '';
+        elements.forEach((element) => {
+            html += '<option value="' + element[value] + '">' + element[name] + '</option>';
+        });
+        field.innerHTML = html;
     }
 }
 

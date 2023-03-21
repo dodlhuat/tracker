@@ -3,7 +3,7 @@ import {utils} from "./utils.js";
 export let dropdown = {
     init: function (selector) {
         if (utils.get(selector).length === 0) {
-            console.error(selector + ' not found')
+            console.error(selector + ' not found');
             return;
         }
         if (!utils.get(selector).classList.contains('tracker-dropdown')) {

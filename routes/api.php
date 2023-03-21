@@ -41,7 +41,13 @@ Route::middleware('auth:sanctum')->get('/weekdays', function () {
     return App::call('App\Http\Controllers\WeekdayController@all');
 });
 
-# todo: trackingtypes laden
+# todo: trackingtypes hinzufügen / bearbeiten / löschen
+Route::middleware('auth:sanctum')->get('/trackingtypes/{id}', function ($id) {
+    return App::call('App\Http\Controllers\TrackingTypeController@get' , ['id' => $id]);
+});
+Route::middleware('auth:sanctum')->get('/trackingtypes', function () {
+    return App::call('App\Http\Controllers\TrackingTypeController@all');
+});
 
 // translation endpoint
 Route::middleware('auth:sanctum')->get('/translate', function () {

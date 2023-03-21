@@ -2,7 +2,7 @@ import {Model} from "./Model.js";
 
 export class User extends Model {
     constructor(firstname, lastname, email, id = 0) {
-        super('user');
+        super('/user');
         this._firstname = firstname;
         this._lastname = lastname;
         this._email = email;

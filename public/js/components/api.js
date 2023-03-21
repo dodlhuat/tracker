@@ -3,7 +3,7 @@ import {utils} from "./utils.js";
 import {loginOverlay} from "./login-overlay.js";
 
 export let api = {
-    ajaxPromise: function (url, parameters, type = 'GET') {
+    ajaxPromise: function (url, parameters = {}, type = 'GET') {
         url = 'http://127.0.0.1:8000/api' + url;
         let xhr = new XMLHttpRequest();
         return new Promise(function (resolve, reject) {
@@ -27,7 +27,6 @@ export let api = {
             }
             xhr.open(type, url, true)
             xhr.setRequestHeader('Accept', 'application/json');
-            // todo: aus dem speicher laden
             xhr.setRequestHeader('Authorization', 'Bearer ' + utils.cache('tracker-token'));
             xhr.send(parameters);
         });
@@ -57,7 +56,8 @@ export let api = {
         return this.ajaxPromise(u.api_path, {id: id}, 'GET');
     },
     all: function (model) {
-
+        let u = new model();
+        return this.ajaxPromise(u.api_path);
     },
     save: function (model) {
 
