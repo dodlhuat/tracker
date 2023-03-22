@@ -30,6 +30,9 @@ Route::middleware('auth:sanctum')->get('/workingminutes', function () {
 });
 
 # todo: trackedtime hinzufügen / bearbeiten / löschen / laden für definierte periode
+Route::middleware('auth:sanctum')->get('/trackedtimes', function () {
+    return App::call('App\Http\Controllers\TrackedTimeController@filter');
+});
 
 # todo: user hinzufügen / bearbeiten / löschen / laden
 
