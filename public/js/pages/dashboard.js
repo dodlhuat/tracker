@@ -2,8 +2,8 @@ import {utils} from "../components/utils.js";
 import {api} from "../components/api.js";
 import {dropdown} from "../components/dropdown.js";
 import {navbar} from "../components/navbar.js";
-import {animate} from "../components/animate.js";
 import {TrackingType} from "../models/TrackingType.js";
+import {User} from "../models/User.js";
 
 utils.contentLoaded(function () {
     api.checkToken().then((logged_in) => {
@@ -21,6 +21,11 @@ utils.contentLoaded(function () {
         utils.fillDropdown(utils.get('#tracking-type'), tracking_types);
         tracking_type = dropdown.init('#tracking-type');
     });
+
+    // so schaut filtern aus :)
+    api.filter(User, {firstname: {'=': 'Andi'}, lastname: {'=': 'Gruber'}}).then((response) => {
+        console.log(response);
+    })
 
     // datetime picker
     let datetimepicker = flatpickr('.datetime-picker', {

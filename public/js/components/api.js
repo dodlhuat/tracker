@@ -17,13 +17,15 @@ export let api = {
                 }
             }
             if (type === 'POST') {
-                // TODO: parameter url encoden
-                const parameters_array = [];
-                for (const [key, value] of Object.entries(parameters)) {
-                    parameters_array.push(key + '=' + value);
-                }
-                url += '?' + parameters_array.join('&');
-                parameters = null
+                // const parameters_array = [];
+                // for (const [key, value] of Object.entries(parameters)) {
+                //     parameters_array.push(key + '=' + encodeURI(value));
+                // }
+                // url += '?' + parameters_array.join('&');
+                // parameters = null;
+            } else {
+                url += '?filter=' + JSON.stringify(parameters);
+                parameters = null;
             }
             xhr.open(type, url, true)
             xhr.setRequestHeader('Accept', 'application/json');
@@ -53,11 +55,15 @@ export let api = {
      */
     get: function (model, id) {
         let u = new model();
-        return this.ajaxPromise(u.api_path, {id: id}, 'GET');
+        return this.ajaxPromise(u.api_path, {id: id});
     },
     all: function (model) {
         let u = new model();
         return this.ajaxPromise(u.api_path);
+    },
+    filter: function (model, filters) {
+        let u = new model();
+        return this.ajaxPromise(u.api_path, filters);
     },
     save: function (model) {
 

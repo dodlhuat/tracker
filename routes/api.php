@@ -31,10 +31,16 @@ Route::middleware('auth:sanctum')->get('/workingminutes', function () {
 
 # todo: trackedtime hinzufügen / bearbeiten / löschen / laden für definierte periode
 Route::middleware('auth:sanctum')->get('/trackedtimes', function () {
-    return App::call('App\Http\Controllers\TrackedTimeController@filter');
+    return App::call('App\Http\Controllers\TrackedTimeController@all');
 });
 
 # todo: user hinzufügen / bearbeiten / löschen / laden
+Route::middleware('auth:sanctum')->get('/users/{id}', function ($id) {
+    return App::call('App\Http\Controllers\UserController@get' , ['id' => $id]);
+});
+Route::middleware('auth:sanctum')->get('/users', function () {
+    return App::call('App\Http\Controllers\UserController@all');
+});
 
 # todo: weekdays laden
 Route::middleware('auth:sanctum')->get('/weekdays/{id}', function ($id) {
