@@ -4,6 +4,7 @@ import {dropdown} from "../components/dropdown.js";
 import {navbar} from "../components/navbar.js";
 import {TrackingType} from "../models/TrackingType.js";
 import {User} from "../models/User.js";
+import {datepicker} from "../components/datepicker.js";
 
 utils.contentLoaded(function () {
     api.checkToken().then((logged_in) => {
@@ -27,27 +28,8 @@ utils.contentLoaded(function () {
         console.log(response);
     })
 
-    // datetime picker
-    let datetimepicker = flatpickr('.datetime-picker', {
-        enableTime: true,
-        dateFormat: "Y-m-d H:i",
-        time_24hr: true,
-        "locale": {
-            "firstDayOfWeek": 1 // start week on Monday
-        },
-        onChange: function(selectedDates, dateStr, instance) {
-            // set start time for end-time-picker
-            timepicker.clear();
-            timepicker.set('minTime', selectedDates[0].getHours() + ':' + selectedDates[0].getMinutes());
-        }
-    });
-
-    let timepicker = flatpickr('.time-picker', {
-        enableTime: true,
-        noCalendar: true,
-        dateFormat: "H:i",
-        time_24hr: true
-    });
+    let timepicker = datepicker.initTimepicker('.time-picker');
+    let datetimepicker = datepicker.initConnectedDateAndTimePicker('.datetime-picker', timepicker)
 
     utils.on('click', utils.get('.add-tracking'), () => {
         // timestamp: datetimepicker.selectedDates[0].valueOf()
