@@ -48,6 +48,8 @@
                   "maximumError": "4kb"
                 }
               ],
+              "outputPath": "../../../public/assets/angular",
+              "deployUrl": "/assets/angular/",
               "outputHashing": "all"
             },
             "development": {
@@ -56,7 +58,9 @@
               "vendorChunk": true,
               "extractLicenses": false,
               "sourceMap": true,
-              "namedChunks": true
+              "namedChunks": true,
+              "outputPath": "dist/assets/angular",
+              "baseHref": "/assets/angular/"
             }
           },
           "defaultConfiguration": "production"
