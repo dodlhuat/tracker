@@ -57,11 +57,3 @@ Route::middleware('auth:sanctum')->get('/trackingtypes/{id}', function ($id) {
 Route::middleware('auth:sanctum')->get('/trackingtypes', function () {
     return App::call('App\Http\Controllers\TrackingTypeController@all');
 });
-
-// translation endpoint
-Route::middleware('auth:sanctum')->get('/translate', function () {
-    return App::call('App\Http\Controllers\TranslationController@translate');
-});
-Route::middleware('auth:sanctum')->get('/translate/all', function () {
-    return App::call('App\Http\Controllers\TranslationController@all');
-});
